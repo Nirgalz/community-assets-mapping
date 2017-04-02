@@ -18,6 +18,14 @@
         <?php
             echo $this->Form->control('name');
             echo $this->Form->control('users._ids', ['options' => $users]);
+            echo $this->Form->control('users._joinData.metatag', [
+                'type' => 'radio',
+                'options' => ['NEED','CAN','HAVE']
+            ]);
+
+
+        echo $this->Form->radio('level', [1 , 2 , 3 ]);
+
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
