@@ -17,14 +17,18 @@
         <legend><?= __('Add Tag') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('users._ids', ['options' => $users]);
-            echo $this->Form->control('users._joinData.metatag', [
+            echo $this->Form->control('users.0.id',[
+                'type' => 'number'
+                ]);
+            echo $this->Form->control('users.0._joinData.metatag', [
                 'type' => 'radio',
                 'options' => ['NEED','CAN','HAVE']
             ]);
+            echo $this->Form->control('users.0._joinData.level', [
+                'type' => 'radio',
+                'options' => [1, 2, 3]
+            ]);
 
-
-        echo $this->Form->radio('level', [1 , 2 , 3 ]);
 
         ?>
     </fieldset>

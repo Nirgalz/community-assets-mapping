@@ -50,14 +50,15 @@ class TagsController extends AppController
     {
         $tag = $this->Tags->newEntity();
         if ($this->request->is('post')) {
+
             $tag = $this->Tags->patchEntity($tag, $this->request->getData(), ['associated' => ['Users._joinData']]);
 
             //$tag->_joinData
-            if ($this->Tags->save($tag)) {
+            if ($this->Tags->save($tag, ['associated' => ['Users._joinData']])) {
 
                 $this->Flash->success(__('The tag has been saved.'));
 
-                //return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index']);
 
 
             }
