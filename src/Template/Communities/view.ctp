@@ -30,44 +30,10 @@
         <h4><?= __('Story') ?></h4>
         <?= $this->Text->autoParagraph(h($community->story)); ?>
     </div>
-    <div class="related">
-        <h4><?= __('Related Users') ?></h4>
-        <?php if (!empty($community->users)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Username') ?></th>
-                <th scope="col"><?= __('Email') ?></th>
-                <th scope="col"><?= __('Password') ?></th>
-                <th scope="col"><?= __('Role') ?></th>
-                <th scope="col"><?= __('Community Id') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($community->users as $users): ?>
-            <tr>
-                <td><?= h($users->id) ?></td>
-                <td><?= h($users->username) ?></td>
-                <td><?= h($users->email) ?></td>
-                <td><?= h($users->password) ?></td>
-                <td><?= h($users->role) ?></td>
-                <td><?= h($users->community_id) ?></td>
-                <td><?= h($users->created) ?></td>
-                <td><?= h($users->modified) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Users', 'action' => 'view', $users->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Users', 'action' => 'edit', $users->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Users', 'action' => 'delete', $users->id], ['confirm' => __('Are you sure you want to delete # {0}?', $users->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
+
     <div class="related">
         <h4><?= __('Related assets') ?></h4>
-        <?php if (!empty($tags)): ?>
+        <?php if (!empty($community->users_tags)): ?>
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <th scope="col"><?= __('Id') ?></th>
@@ -76,8 +42,8 @@
 
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
-                <?php debug($tags) ?>
-                <?php foreach ($tags as $tag): ?>
+                <?php debug($community->users_tags) ?>
+                <?php foreach ($community->users_tags as $tag): ?>
                     <tr>
                         <td><?= h($tag->id) ?></td>
                         <td><?= h($tag->name) ?></td>

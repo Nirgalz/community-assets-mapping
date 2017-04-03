@@ -18,9 +18,7 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Communities']
-        ];
+
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
