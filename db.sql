@@ -22,7 +22,7 @@ CREATE TABLE `users_tags` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`user_id` int NOT NULL,
 	`tag_id` int NOT NULL,
-	`metatag` varchar(255),
+	`metatag_id` INT NOT NULL ,
 	`level` int(1),
 	`community_id` INT,
 	PRIMARY KEY (`id`)
@@ -32,5 +32,13 @@ CREATE TABLE `communities` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`story` TEXT,
+	PRIMARY KEY (`id`)
+);
+
+
+CREATE TABLE `metatags` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`name` varchar(255) NOT NULL,
+	`description` TEXT,
 	PRIMARY KEY (`id`)
 );

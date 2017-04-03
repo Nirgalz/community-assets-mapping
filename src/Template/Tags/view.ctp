@@ -36,7 +36,6 @@
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Password') ?></th>
                 <th scope="col"><?= __('Role') ?></th>
-                <th scope="col"><?= __('Community Id') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -48,7 +47,6 @@
                 <td><?= h($users->email) ?></td>
                 <td><?= h($users->password) ?></td>
                 <td><?= h($users->role) ?></td>
-                <td><?= h($users->community_id) ?></td>
                 <td><?= h($users->created) ?></td>
                 <td><?= h($users->modified) ?></td>
                 <td class="actions">

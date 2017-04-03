@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Communities
  * @property \Cake\ORM\Association\BelongsToMany $Tags
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
@@ -88,7 +87,6 @@ class UsersTable extends Table
     {
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['community_id'], 'Communities'));
 
         return $rules;
     }

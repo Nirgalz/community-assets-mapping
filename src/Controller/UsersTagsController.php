@@ -19,7 +19,7 @@ class UsersTagsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users', 'Tags']
+            'contain' => ['Users', 'Tags', 'Communities']
         ];
         $usersTags = $this->paginate($this->UsersTags);
 
@@ -37,7 +37,7 @@ class UsersTagsController extends AppController
     public function view($id = null)
     {
         $usersTag = $this->UsersTags->get($id, [
-            'contain' => ['Users', 'Tags']
+            'contain' => ['Users', 'Tags', 'Communities']
         ]);
 
         $this->set('usersTag', $usersTag);
@@ -61,9 +61,11 @@ class UsersTagsController extends AppController
             }
             $this->Flash->error(__('The users tag could not be saved. Please, try again.'));
         }
+        $metatags = $this->UsersTags->Metatags->find('list', ['limit' => 200]);
         $users = $this->UsersTags->Users->find('list', ['limit' => 200]);
         $tags = $this->UsersTags->Tags->find('list', ['limit' => 200]);
-        $this->set(compact('usersTag', 'users', 'tags'));
+        $communities = $this->UsersTags->Communities->find('list', ['limit' => 200]);
+        $this->set(compact('usersTag', 'users', 'tags', 'communities', 'metatags'));
         $this->set('_serialize', ['usersTag']);
     }
 
@@ -90,7 +92,8 @@ class UsersTagsController extends AppController
         }
         $users = $this->UsersTags->Users->find('list', ['limit' => 200]);
         $tags = $this->UsersTags->Tags->find('list', ['limit' => 200]);
-        $this->set(compact('usersTag', 'users', 'tags'));
+        $communities = $this->UsersTags->Communities->find('list', ['limit' => 200]);
+        $this->set(compact('usersTag', 'users', 'tags', 'communities'));
         $this->set('_serialize', ['usersTag']);
     }
 

@@ -37,27 +37,7 @@ class CommunitiesController extends AppController
             'contain' => ['UsersTags']
         ]);
 
-        //$tags = $this->Communities->UsersTags->where(['community_id' => $id]);
-
-
-       /* $tags = [];
-        $users = $community->users;
-        foreach ($users as $user) {
-           foreach ($user->tags as $tag) {
-               if (array_key_exists($tag->name, $tags)) {
-                   $tags[$tag->name]++ ;
-               } else {
-                    $tags[$tag->name] = 1 ;
-               }
-           }
-        }*/
-
-        //$tags = $this->Communities->Users->find('all')->where(['community_id' => $id])->contain('Tags');
-
-
-
         $this->set('community', $community);
-        $this->set(compact('tags'));
         $this->set('_serialize', ['community']);
     }
 

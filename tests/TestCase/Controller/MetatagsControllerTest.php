@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\UsersTagsController;
+use App\Controller\MetatagsController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\UsersTagsController Test Case
+ * App\Controller\MetatagsController Test Case
  */
-class UsersTagsControllerTest extends IntegrationTestCase
+class MetatagsControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,6 +16,7 @@ class UsersTagsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
+        'app.metatags',
         'app.users_tags',
         'app.users',
         'app.tags',

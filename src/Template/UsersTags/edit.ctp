@@ -17,6 +17,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Communities'), ['controller' => 'Communities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Community'), ['controller' => 'Communities', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="usersTags form large-9 medium-8 columns content">
@@ -26,8 +28,9 @@
         <?php
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('tag_id', ['options' => $tags]);
-            echo $this->Form->control('metatag');
+            echo $this->Form->control('metatag_id');
             echo $this->Form->control('level');
+            echo $this->Form->control('community_id', ['options' => $communities, 'empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -11,6 +11,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Communities'), ['controller' => 'Communities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Community'), ['controller' => 'Communities', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="usersTags index large-9 medium-8 columns content">
@@ -21,8 +23,9 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('tag_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('metatag') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('metatag_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('level') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('community_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -32,8 +35,9 @@
                 <td><?= $this->Number->format($usersTag->id) ?></td>
                 <td><?= $usersTag->has('user') ? $this->Html->link($usersTag->user->id, ['controller' => 'Users', 'action' => 'view', $usersTag->user->id]) : '' ?></td>
                 <td><?= $usersTag->has('tag') ? $this->Html->link($usersTag->tag->name, ['controller' => 'Tags', 'action' => 'view', $usersTag->tag->id]) : '' ?></td>
-                <td><?= h($usersTag->metatag) ?></td>
+                <td><?= $this->Number->format($usersTag->metatag_id) ?></td>
                 <td><?= $this->Number->format($usersTag->level) ?></td>
+                <td><?= $usersTag->has('community') ? $this->Html->link($usersTag->community->name, ['controller' => 'Communities', 'action' => 'view', $usersTag->community->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $usersTag->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $usersTag->id]) ?>

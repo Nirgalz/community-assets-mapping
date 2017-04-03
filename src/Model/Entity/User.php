@@ -11,11 +11,9 @@ use Cake\ORM\Entity;
  * @property string $email
  * @property string $password
  * @property string $role
- * @property int $community_id
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
  *
- * @property \App\Model\Entity\Community $community
  * @property \App\Model\Entity\Tag[] $tags
  */
 class User extends Entity

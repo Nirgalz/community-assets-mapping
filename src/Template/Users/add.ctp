@@ -7,8 +7,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Communities'), ['controller' => 'Communities', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Community'), ['controller' => 'Communities', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?></li>
     </ul>
@@ -22,7 +20,6 @@
             echo $this->Form->control('email');
             echo $this->Form->control('password');
             echo $this->Form->control('role');
-            echo $this->Form->control('community_id', ['options' => $communities, 'empty' => true]);
             echo $this->Form->control('tags._ids', ['options' => $tags]);
         ?>
     </fieldset>

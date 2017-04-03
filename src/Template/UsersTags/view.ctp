@@ -14,6 +14,8 @@
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Tags'), ['controller' => 'Tags', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Tag'), ['controller' => 'Tags', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Communities'), ['controller' => 'Communities', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Community'), ['controller' => 'Communities', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="usersTags view large-9 medium-8 columns content">
@@ -28,12 +30,16 @@
             <td><?= $usersTag->has('tag') ? $this->Html->link($usersTag->tag->name, ['controller' => 'Tags', 'action' => 'view', $usersTag->tag->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Metatag') ?></th>
-            <td><?= h($usersTag->metatag) ?></td>
+            <th scope="row"><?= __('Community') ?></th>
+            <td><?= $usersTag->has('community') ? $this->Html->link($usersTag->community->name, ['controller' => 'Communities', 'action' => 'view', $usersTag->community->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($usersTag->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Metatag Id') ?></th>
+            <td><?= $this->Number->format($usersTag->metatag_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Level') ?></th>

@@ -9,11 +9,13 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property int $tag_id
- * @property string $metatag
+ * @property int $metatag_id
  * @property int $level
+ * @property int $community_id
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Tag $tag
+ * @property \App\Model\Entity\Community $community
  */
 class UsersTag extends Entity
 {

@@ -4,15 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Community Entity
+ * Metatag Entity
  *
  * @property int $id
  * @property string $name
- * @property string $story
+ * @property string $description
  *
  * @property \App\Model\Entity\UsersTag[] $users_tags
  */
-class Community extends Entity
+class Metatag extends Entity
 {
 
     /**

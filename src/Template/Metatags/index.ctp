@@ -6,13 +6,13 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Community'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Metatag'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Users Tags'), ['controller' => 'UsersTags', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Users Tag'), ['controller' => 'UsersTags', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="communities index large-9 medium-8 columns content">
-    <h3><?= __('Communities') ?></h3>
+<div class="metatags index large-9 medium-8 columns content">
+    <h3><?= __('Metatags') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -22,14 +22,14 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($communities as $community): ?>
+            <?php foreach ($metatags as $metatag): ?>
             <tr>
-                <td><?= $this->Number->format($community->id) ?></td>
-                <td><?= h($community->name) ?></td>
+                <td><?= $this->Number->format($metatag->id) ?></td>
+                <td><?= h($metatag->name) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $community->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $community->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $community->id], ['confirm' => __('Are you sure you want to delete # {0}?', $community->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $metatag->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $metatag->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $metatag->id], ['confirm' => __('Are you sure you want to delete # {0}?', $metatag->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

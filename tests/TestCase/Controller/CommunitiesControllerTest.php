@@ -17,9 +17,10 @@ class CommunitiesControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.communities',
+        'app.users_tags',
         'app.users',
         'app.tags',
-        'app.users_tags'
+        'app.metatags'
     ];
 
     /**

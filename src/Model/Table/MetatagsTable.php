@@ -7,19 +7,19 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Communities Model
+ * Metatags Model
  *
  * @property \Cake\ORM\Association\HasMany $UsersTags
  *
- * @method \App\Model\Entity\Community get($primaryKey, $options = [])
- * @method \App\Model\Entity\Community newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Community[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Community|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Community patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Community[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Community findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Metatag get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Metatag newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Metatag[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Metatag|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Metatag patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Metatag[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Metatag findOrCreate($search, callable $callback = null, $options = [])
  */
-class CommunitiesTable extends Table
+class MetatagsTable extends Table
 {
 
     /**
@@ -32,12 +32,12 @@ class CommunitiesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('communities');
+        $this->setTable('metatags');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->hasMany('UsersTags', [
-            'foreignKey' => 'community_id'
+            'foreignKey' => 'metatag_id'
         ]);
     }
 
@@ -58,7 +58,7 @@ class CommunitiesTable extends Table
             ->notEmpty('name');
 
         $validator
-            ->allowEmpty('story');
+            ->allowEmpty('description');
 
         return $validator;
     }

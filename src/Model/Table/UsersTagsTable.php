@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $Tags
+ * @property \Cake\ORM\Association\BelongsTo $Metatags
+ * @property \Cake\ORM\Association\BelongsTo $Communities
  *
  * @method \App\Model\Entity\UsersTag get($primaryKey, $options = [])
  * @method \App\Model\Entity\UsersTag newEntity($data = null, array $options = [])
@@ -45,7 +47,10 @@ class UsersTagsTable extends Table
             'foreignKey' => 'tag_id',
             'joinType' => 'INNER'
         ]);
-
+        $this->belongsTo('Metatags', [
+            'foreignKey' => 'metatag_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('Communities', [
             'foreignKey' => 'community_id'
         ]);
@@ -62,10 +67,6 @@ class UsersTagsTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
-        $validator
-            ->requirePresence('metatag', 'create')
-            ->notEmpty('metatag');
 
         $validator
             ->integer('level')
@@ -85,6 +86,8 @@ class UsersTagsTable extends Table
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         $rules->add($rules->existsIn(['tag_id'], 'Tags'));
+        $rules->add($rules->existsIn(['metatag_id'], 'Metatags'));
+        $rules->add($rules->existsIn(['community_id'], 'Communities'));
 
         return $rules;
     }
