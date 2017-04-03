@@ -36,7 +36,7 @@ class CommunitiesTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Users', [
+        $this->hasMany('UsersTags', [
             'foreignKey' => 'community_id'
         ]);
     }

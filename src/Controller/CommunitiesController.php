@@ -34,10 +34,27 @@ class CommunitiesController extends AppController
     public function view($id = null)
     {
         $community = $this->Communities->get($id, [
-            'contain' => ['Users']
+            'contain' => ['UsersTags']
         ]);
 
+        $tags = [];
+        $users = $community->users;
+        foreach ($users as $user) {
+           foreach ($user->tags as $tag) {
+               if (array_key_exists($tag->name, $tags)) {
+                   $tags[$tag->name]++ ;
+               } else {
+                    $tags[$tag->name] = 1 ;
+               }
+           }
+        }
+
+        //$tags = $this->Communities->Users->find('all')->where(['community_id' => $id])->contain('Tags');
+
+
+
         $this->set('community', $community);
+        $this->set(compact('tags'));
         $this->set('_serialize', ['community']);
     }
 

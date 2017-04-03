@@ -65,4 +65,32 @@
         </table>
         <?php endif; ?>
     </div>
+    <div class="related">
+        <h4><?= __('Related assets') ?></h4>
+        <?php if (!empty($tags)): ?>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th scope="col"><?= __('Id') ?></th>
+                    <th scope="col"><?= __('name') ?></th>
+                    <th scope="col"><?= __('metatag') ?></th>
+
+                    <th scope="col" class="actions"><?= __('Actions') ?></th>
+                </tr>
+                <?php debug($tags) ?>
+                <?php foreach ($tags as $tag): ?>
+                    <tr>
+                        <td><?= h($tag->id) ?></td>
+                        <td><?= h($tag->name) ?></td>
+                        <td><?= h($tag->metatag) ?></td>
+
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['controller' => 'Tags', 'action' => 'view', $tag->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['controller' => 'Tags', 'action' => 'edit', $tag->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Tags', 'action' => 'delete', $tag->id], ['confirm' => __('Are you sure you want to delete # {0}?', $users->id)]) ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
+    </div>
 </div>

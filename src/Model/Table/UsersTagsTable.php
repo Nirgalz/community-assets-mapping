@@ -45,6 +45,10 @@ class UsersTagsTable extends Table
             'foreignKey' => 'tag_id',
             'joinType' => 'INNER'
         ]);
+
+        $this->belongsTo('Communities', [
+            'foreignKey' => 'community_id'
+        ]);
     }
 
     /**

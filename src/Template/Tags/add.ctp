@@ -20,7 +20,9 @@
             echo $this->Form->control('users.0.id',[
                 'type' => 'number'
                 ]);
-            echo $this->Form->control('users.0._joinData.metatag', [
+        echo $this->Form->control('users.0.community_id');
+
+        echo $this->Form->control('users.0._joinData.metatag', [
                 'type' => 'radio',
                 'options' => ['NEED','CAN','HAVE']
             ]);

@@ -12,7 +12,6 @@ CREATE TABLE users
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255),
   role VARCHAR(20),
-  community_id INT,
   created DATETIME,
   modified DATETIME
 );
@@ -25,6 +24,7 @@ CREATE TABLE `users_tags` (
 	`tag_id` int NOT NULL,
 	`metatag` varchar(255),
 	`level` int(1),
+	`community_id` INT,
 	PRIMARY KEY (`id`)
 );
 

@@ -41,9 +41,6 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Communities', [
-            'foreignKey' => 'community_id'
-        ]);
         $this->belongsToMany('Tags', [
             'foreignKey' => 'user_id',
             'targetForeignKey' => 'tag_id',
